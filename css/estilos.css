@@ -47,10 +47,12 @@ figure {
     align-items: center;
     justify-content: center;
 }
+.header-browser form, .header-browser input {
+    width: 90%;
+}
 .form input{
     border: 1px solid #b2b1b6;
     border-radius: 7px;
-    width: 609px; 
     padding: 5px;
     font-size: 16px;  
     height: 25px;
@@ -73,6 +75,9 @@ figure {
 }
 .icon-triangle-down {
     font-size: 25px;
+}
+.icon-menu {
+    display: none;
 }
 
 .nav {
@@ -160,4 +165,140 @@ figure {
 .movie-description {
     margin: 5px;
     font-size: 14px;
+}
+
+@media screen and (max-width: 1024px) {
+    .movie-title {
+        font-size: 16px;
+    }
+    .movie-description {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header-img img{
+        width: 40px;
+        height: 40px;
+    }
+    .header-title {
+        font-size: 26px;
+    }
+    .header-username {
+        font-size: 14px;
+        margin: 0;
+    }
+    .header-photo img{
+        width: 40px;
+        height: 40px;
+    }
+    .icon-triangle-down {
+        font-size: 20px;
+    }
+
+    .nav-container i {
+        font-size: 28px;
+    }
+    .nav-container p {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .movie-section {
+        grid-column: 1 / span 3;
+        font-size: 18px;
+    }
+    .movie-overlay {
+        top: 50%;
+    }
+    .movie:hover .movie-overlay {
+        top: 0;
+    }
+    .movie-description {
+        display: none;
+    }
+    .movie:hover .movie-description {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: .1fr .1fr 10fr;
+        height: 100%;
+        grid-template-areas: "header"
+                             "nav"
+                             "movies";
+    }
+
+    .header-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "header-title-container"
+                             "header-browser"
+                             "header-user";
+        height: 100%;
+    }
+    .header-title-container {
+        grid-area: header-title-container;
+        display: flex;
+        justify-content: center;
+    }
+    .header-browser {
+        grid-area: header-browser;
+    }
+    .header-browser form {
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+    }
+    .header-user {
+        grid-area: header-user;
+    }
+    .header-username {
+        margin-right: 10px;
+    }
+
+    .nav-container {
+        color: white;
+        display: grid;
+        height: 100%;
+        grid-template-columns: 80% 20%;
+        grid-template-areas: "top bottom";
+    } 
+    .top {
+        grid-template-rows: none;
+        grid-template-columns: repeat(3, 80px);
+        grid-template-areas: "home trending like";
+    }
+    .bottom {
+        margin-top: 10px;
+    }
+
+    .movies-container {
+        grid-template-columns: 1fr;
+        grid-gap: 16px;
+        margin: 16px 16px;
+    }
+    .movie-section {
+        grid-column: initial;
+        font-size: 32px;
+    }
+    .movie-title {
+        font-size: 28px;
+    }
+    .movie-description {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .movie-title {
+        font-size: 24px;
+    }
+    .movie-description {
+        font-size: 16px;
+    }
 }
